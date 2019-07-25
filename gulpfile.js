@@ -17,11 +17,16 @@ gulp.task('less', function () {
     .pipe(gulp.dest('src/css/'))
 })
 
-gulp.task('css', function () {
+gulp.task('watch',function(){
+    return gulp.watch('src/less/**/*.less',['less']);
+})
+
+gulp.task('css',['less'], function () {
     return gulp.src('src/css/*.css')
     .pipe(cleanCss())
     .pipe(gulp.dest('dist/css/'))
 })
+
 
  //gulp.series|4.0 依赖
  //gulp.parallel|4.0 多个依赖嵌套 ,'css'

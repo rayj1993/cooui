@@ -1,12 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>cooTree</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/cooTree.css">
 </head>
+
 <body>
-    <script src="../dist/modules/cooTree.js"></script>
+    <div id="j-tree" style="width: 300px;">
+
+    </div>
+    <div class="coo-tree" style="width: 300px;">
+        <div class="coo-tree-node">
+            <div class="coo-tree-item">
+                <span class="coo-left-box">
+                    <i class="icon icon-bottom"></i>
+                </span>
+                <span class="coo-right-box">
+                </span>
+                <span class="coo-middle-box">次是一个新的故事这次是一个新的故事</span>
+            </div>
+            <div class="coo-tree-node">
+                <div class="coo-tree-item">
+                    <span class="coo-left-box">
+                        <i class="icon icon-right"></i>
+                    </span>
+                    <span class="coo-right-box">
+                    </span>
+                    <span class="coo-middle-box">次是一个新的故事这次是一个新的故事新的故事新的故事</span>
+                </div>
+                <div class="coo-tree-item">
+                    <span class="coo-left-box">
+                        <i class="icon icon-bottom"></i>
+                    </span>
+                    <span class="coo-right-box">
+                    </span>
+                    <span class="coo-middle-box">次是一个新的故事这次是一个新的故事</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/cooTree.js"></script>
+    <script>
+        $(function () {
+            $('#j-tree').cooTree({
+                data: [{
+                    "nodeName": "测试树",
+                    "children": [{
+                            "nodeName": "叶子1",
+                            "children": [{
+                                    "nodeName": "叶子11"
+                                },
+                                {
+                                    "nodeName": "叶子12"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "叶子2",
+                            "children": [{
+                                "nodeName": "叶子21"
+                            }]
+                        }
+                    ]
+                }],
+                open: true,
+                childName: 'children',
+                field: {
+                    left: {
+                        title: '{{nodeName}}',
+                        click: function (data, $this) {
+                            console.log(data);
+                        }
+                    },
+                    middle: {
+                        title: '{{nodeName}}',
+                        temple: '{{nodeName}}',
+                        click: function (data, $this) {
+                            console.log(data);
+                        }
+                    },
+                    right: {
+                        title: '{{nodeName}}',
+                        // temple: '{{nodeName}}'
+                    }
+                }
+            })
+        })
+    </script>
 </body>
+
 </html>

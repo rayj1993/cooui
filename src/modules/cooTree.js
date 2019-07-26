@@ -66,41 +66,66 @@
                 '<div class="coo-tree">'
             ],
             params = this.params,
-            childName = this.params.childName,
-            //父级树结构遍历
-            parentNode = function (node, number) {
+            d = params.data,
+            childName = params.childName;
 
-            },
-            //子级生成与内容生成方法
-            childNode = function (data, number) {
-
-            };
-
-        /**
-         * 1. 写一个方法，可以做到自己循环自己
-         * 2.
-         */
-        function createParent() {
-            for (var i = 0, len = params.data.length; i < len; i++) {
-                html.push('<div class="coo-tree-node">');
-                //先写入内容
-                html.push([
-                    '<div class="coo-tree-item">',
+        function createChild(data) {
+            function createNode(d, children) {
+                var arr = [
+                    '<div class="coo-tree-item">'
+                ]
+                //左
+                arr.push([
                     '   <span class="coo-left-box">',
-                    '       <i class="icon icon-bottom"></i>',
-                    '   </span>',
+                    children ? '' : '<i class="icon icon-tree-bottom' + (params.open ? '' : ' icon-tree-right') + '"></i>',
+                    '   </span>'
+                ].join(''))
+                //右
+                arr.push([
                     '   <span class="coo-right-box">',
-                    '   </span>',
-                    '   <span class="coo-middle-box">次是一个新的故事这次是一个新的故事</span>',
+                    '   </span>'
+                ].join(''));
+                //中
+                arr.push([
+                    '   <span class="coo-middle-box">' + d.nodeName + '</span>',
                     '</div>'
-                ].join(""));
-                if(typeof params.data[i].childName==='undefined'){
+                ].join(''));
+                html.push(arr.join(''));
+            }
+            createNode(data)
+            //最后一级，也就子集地址
+            var node = data[childName];
+            if (node[0][childName] === undefined) {
+                html.push('<div class="coo-tree-node">');
+                for (var i = 0, len = node.length; i < len; i++) {
+                    html.push(createNode(node[i], true));
                 }
                 html.push('</div>');
             }
         }
-        createParent();
 
+        function createParent(data) {
+            //创建节点
+            createChild(data);
+            //询问是否存在子集，如果存在，还是父级，继续循环
+            var node = data[childName];
+            if (node[0][childName] !== undefined) {
+                for (var i = 0; i < node.length; i++) {
+                    html.push('<div class="coo-tree-node">');
+                    //如果还存在父节点，就一直循环下去
+                    createParent(node[i]);
+                    html.push('</div>');
+                }
+            }
+        }
+
+        //这里是父级循环
+        for (var i = 0, len = d.length; i < len; i++) {
+            //这里第一级父节点
+            html.push('<div class="coo-tree-node">');
+            createParent(d[i]);
+            html.push('</div>');
+        }
         html.push('</div>');
         this.$el.html(html.join(''));
         //绑定事件

@@ -13,11 +13,11 @@
     <div id="j-tree" style="width: 300px;">
 
     </div>
-    <div class="coo-tree" style="width: 300px;">
+    <!-- <div class="coo-tree" style="width: 300px;">
         <div class="coo-tree-node">
             <div class="coo-tree-item">
                 <span class="coo-left-box">
-                    <i class="icon icon-bottom"></i>
+                    <i class="icon icon-tree-bottom"></i>
                 </span>
                 <span class="coo-right-box">
                 </span>
@@ -26,15 +26,16 @@
             <div class="coo-tree-node">
                 <div class="coo-tree-item">
                     <span class="coo-left-box">
-                        <i class="icon icon-right"></i>
+                        <i class="icon icon-tree-right"></i>
                     </span>
                     <span class="coo-right-box">
+                        <i class="icon icon-tree-right"></i>
                     </span>
                     <span class="coo-middle-box">次是一个新的故事这次是一个新的故事新的故事新的故事</span>
                 </div>
                 <div class="coo-tree-item">
                     <span class="coo-left-box">
-                        <i class="icon icon-bottom"></i>
+                        <i class="icon icon-tree-bottom"></i>
                     </span>
                     <span class="coo-right-box">
                     </span>
@@ -42,32 +43,53 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="../src/plugins/jquery-1.11.3.min.js"></script>
     <script src="../src/modules/cooTree.js"></script>
     <script>
         $(function () {
             $('#j-tree').cooTree({
                 data: [{
-                    "nodeName": "测试树",
-                    "children": [{
-                            "nodeName": "叶子1",
-                            "children": [{
-                                    "nodeName": "叶子11"
-                                },
-                                {
-                                    "nodeName": "叶子12"
-                                }
-                            ]
-                        },
-                        {
-                            "nodeName": "叶子2",
-                            "children": [{
-                                "nodeName": "叶子21"
-                            }]
-                        }
-                    ]
-                }],
+                        "nodeName": "父节点1",
+                        "children": [{
+                                "nodeName": "父节点11",
+                                "children": [{
+                                        "nodeName": "子节点111"
+                                    },
+                                    {
+                                        "nodeName": "子节点112"
+                                    }
+                                ]
+                            },
+                            {
+                                "nodeName": "父节点12",
+                                "children": [{
+                                    "nodeName": "子节点121"
+                                }]
+                            }
+                        ]
+                    },
+                    {
+                        "nodeName": "父节点2",
+                        "children": [{
+                                "nodeName": "父节点21",
+                                "children": [{
+                                        "nodeName": "子节点211"
+                                    },
+                                    {
+                                        "nodeName": "子节点212"
+                                    }
+                                ]
+                            },
+                            {
+                                "nodeName": "父节点22",
+                                "children": [{
+                                    "nodeName": "子节点221"
+                                }]
+                            }
+                        ]
+                    }
+                ],
                 open: true,
                 childName: 'children',
                 field: {

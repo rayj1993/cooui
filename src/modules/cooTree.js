@@ -26,20 +26,7 @@
             //布尔值
             open: true,
             //设定字段名
-            field: {
-                left: {
-                    title: '',
-                    temple: null
-                },
-                middle: {
-                    title: '',
-                    temple: null
-                },
-                right: {
-                    title: '',
-                    temple: null
-                }
-            },
+            field: {},
             //成功的回调
             done: function () {
 
@@ -57,84 +44,167 @@
     };
 
     /**
-     * 创建样式
-     * @return {Object} 返回当前实例对象
+     * @desc 初始化一棵树
      */
     Tree.prototype.create = function () {
-
-        var html = [
-                '<div class="coo-tree">'
-            ],
-            params = this.params,
-            d = params.data,
-            childName = params.childName;
-
-        function createChild(data) {
-            function createNode(d, children) {
-                var arr = [
-                    '<div class="coo-tree-item">'
-                ]
-                //左
-                arr.push([
-                    '   <span class="coo-left-box">',
-                    children ? '' : '<i class="icon icon-tree-bottom' + (params.open ? '' : ' icon-tree-right') + '"></i>',
-                    '   </span>'
-                ].join(''))
-                //右
-                arr.push([
-                    '   <span class="coo-right-box">',
-                    '   </span>'
-                ].join(''));
-                //中
-                arr.push([
-                    '   <span class="coo-middle-box">' + d.nodeName + '</span>',
-                    '</div>'
-                ].join(''));
-                html.push(arr.join(''));
-            }
-            createNode(data)
-            //最后一级，也就子集地址
-            var node = data[childName];
-            if (node[0][childName] === undefined) {
-                html.push('<div class="coo-tree-node">');
-                for (var i = 0, len = node.length; i < len; i++) {
-                    html.push(createNode(node[i], true));
-                }
-                html.push('</div>');
-            }
-        }
-
-        function createParent(data) {
-            //创建节点
-            createChild(data);
-            //询问是否存在子集，如果存在，还是父级，继续循环
-            var node = data[childName];
-            if (node[0][childName] !== undefined) {
-                for (var i = 0; i < node.length; i++) {
-                    html.push('<div class="coo-tree-node">');
-                    //如果还存在父节点，就一直循环下去
-                    createParent(node[i]);
-                    html.push('</div>');
-                }
-            }
-        }
-
-        //这里是父级循环
-        for (var i = 0, len = d.length; i < len; i++) {
-            //这里第一级父节点
-            html.push('<div class="coo-tree-node">');
-            createParent(d[i]);
-            html.push('</div>');
-        }
-        html.push('</div>');
-        this.$el.html(html.join(''));
-        //绑定事件
-        this.events();
-        params.done(params.data, this.$el);
-        return this;
+        var _self = this;
+        var $temp = $('<div class="coo-tree-node"></div>');
+        this.tree($temp);
+        var $html = $('<div class="coo-tree"></div>').append($temp);
+        this.$el.html($html);
+        _self.params.done(_self.params.data, $html);
     }
+    /**
+     * @desc 生成树html代码
+     */
+    Tree.prototype.tree = function ($elem, children) {
+        var _self = this,
+            options = _self.params,
+            data = children || options.data,
+            field = options.field,
+            template = function (t, d) {
+                var
+                    fragment = '',
+                    key,
+                    reg;
+                //遍历该数据项下所有的属性，将该属性作为key值来查找标签，然后替换
+                for (key in d) {
+                    reg = new RegExp('{{' + key + '}}', 'ig');
+                    fragment = (fragment || t).replace(reg, d[key]);
+                }
+                return fragment;
+            };
+        $(data).each(function (index, item) {
+            var hasChild = item.children && item.children.length >= 0,
+                packDiv = $('<div class="coo-tree-node" ' + (options.open ? '' : 'style = "display: none;"') + '></div>'),
+                entryDiv = $([
+                    '<div class="coo-tree-set">',
+                    '   <div class="coo-tree-item">',
+                    // 左侧箭头
+                    (function () {
+                        if (hasChild) {
+                            return '<span class="coo-left-box"><i class="icon icon-tree-bottom ' + (options.open ? '' : 'icon-tree-right') + '"></i></span>';
+                        } else {
+                            return '<span class="coo-left-box"></span>';
+                        }
+                    })(),
+                    // 右侧节点操作图标
+                    (function () {
+                        //如果值不存在
+                        if (!field.right) {
+                            return
+                        }
+                        if (typeof field.right.templet === 'string' || typeof field.right.templet === 'function') {
+                            if (typeof field.right.templet === 'function') {
+                                var str = field.right.templet(item);
+                                return '<span class="coo-right-box">' + str + '</span>';
+                            } else {
+                                return template('<span class="coo-right-box">' + field.right.templet + '</span>', item);
+                            }
+                        } else {
+                            var editIcon = {
+                                    eye: '<i class="icon icon-tree-close"></i>',
+                                },
+                                arr = ['<span class="coo-right-box">'];
+                            $(field.right.edit).each(function (index, item) {
+                                arr.push(editIcon[item]);
+                            })
+                            arr.push('</span>');
+                        }
+                        return arr.join('');
+                    })(),
+                    // 中间显示内容
+                    (function () {
+                        var title = '';
+                        if (typeof field.middle.title === 'function') {
+                            title = field.middle.title(item);
+                        } else {
+                            title = template(field.middle.title, item);
+                        }
+                        if (typeof field.middle.templet === 'function') {
+                            var str = field.middle.templet(item);
+                            return '<span class="coo-middle-box" ' + (title ? "title=" + title : "") + '>' + str + '</span>';
+                        } else {
+                            return template('<span class="coo-middle-box" title="' + title + '">' + field.middle.templet + '</span>', item);
+                        }
+                    })(),
+                    '</div></div>'
+                ].join(''));
+            if (hasChild) {
+                //他的之后，其实就是一个纯粹的之后
+                entryDiv.append(packDiv);
+                _self.tree(packDiv, item.children);
+            };
+            //眼睛
+            if (field.right) {
+                _self.setEditEyeEvent(entryDiv, item);
+            }
+            $elem.append(entryDiv);
+            _self.events(entryDiv, item);
+        });
+    };
+    /**
+     * @desc 为html代码绑定事件
+     */
+    Tree.prototype.events = function (elem, item) {
+        var _self = this;
+        var field = _self.params.field;
 
-    Tree.prototype.events = function () {
+        elem.children().children('.coo-middle-box').on('click', function () {
+            $(this).siblings('.coo-left-box').children('.icon-tree-bottom').toggleClass('icon-tree-right').parent().parent().next('.coo-tree-node').toggle();
+            field.middle.click(item, $(this));
+        });
 
+        elem.children().children('.coo-left-box').on('click', function () {
+            $(this).children('.icon-tree-bottom').toggleClass('icon-tree-right').parents('.coo-tree-item').next('.coo-tree-node').toggle();
+            if (field.left && typeof field.left.click === 'function') {
+                field.left.click(item, $(this));
+            }
+        });
     }
+    /**
+     * @desc 计算眼睛显隐状态
+     */
+    Tree.prototype.setEditEyeEvent = function (elem, item) {
+        var _self = this;
+        var field = _self.params.field;
+        elem.children().children('.coo-right-box').on('click', '.icon-tree-close', function () {
+            /**
+             * 1. 将自己的所有子元素，显示或隐藏
+             */
+            $(this).toggleClass('icon-tree-open');
+            if (field.right.click) {
+                field.right.click(item, $(this));
+            }
+
+            // 同步子节点选中状态
+            if ($(this).hasClass('icon-tree-open')) {
+                $(this).parents('.coo-tree-item').next().find('.icon-tree-close').each(function () {
+                    if (!$(this).hasClass('icon-tree-open')) {
+                        $(this).click();
+                    }
+                })
+            } else {
+                $(this).parents('.coo-tree-item').next().find('.icon-tree-close').each(function () {
+                    // 因为上面或者自己的影响，导致了重复点击
+                    // 将显示的关闭
+                    if ($(this).hasClass('icon-tree-open')) {
+                        $(this).click();
+                    }
+                })
+            }
+
+            // 同步父节点选中状态
+            $(this).parents('.coo-tree-node').prev().each(function () {
+                var close = $(this).next().find('.icon-tree-close').length;
+                var open = $(this).next().find('.icon-tree-open').length;
+                if (close === open) {
+                    $(this).children('.coo-right-box').children().addClass('icon-tree-open')
+                } else {
+                    $(this).children('.coo-right-box').children().removeClass('icon-tree-open')
+                }
+            })
+        });
+    }
+    Tree.prototype.reload = function () {}
 }));

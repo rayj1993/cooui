@@ -11,10 +11,36 @@
 
 <body>
     <div id="j-tree" style="width: 300px;">
-
     </div>
     <!-- <div class="coo-tree" style="width: 300px;">
         <div class="coo-tree-node">
+            <div id="as-123" class="coo-tree-item">
+                <span class="coo-left-box">
+                    <i class="icon icon-tree-bottom"></i>
+                </span>
+                <span class="coo-right-box">
+                </span>
+                <span class="coo-middle-box">次是一个新的故事这次是一个新的故事</span>
+            </div>
+            <div class="coo-tree-node">
+                <div class="coo-tree-item">
+                    <span class="coo-left-box">
+                        <i class="icon icon-tree-right"></i>
+                    </span>
+                    <span class="coo-right-box">
+                        <i class="icon icon-tree-right"></i>
+                    </span>
+                    <span class="coo-middle-box">次是一个新的故事这次是一个新的故事新的故事新的故事</span>
+                </div>
+                <div class="coo-tree-item">
+                    <span class="coo-left-box">
+                        <i class="icon icon-tree-bottom"></i>
+                    </span>
+                    <span class="coo-right-box">
+                    </span>
+                    <span class="coo-middle-box">次是一个新的故事这次是一个新的故事</span>
+                </div>
+            </div>
             <div class="coo-tree-item">
                 <span class="coo-left-box">
                     <i class="icon icon-tree-bottom"></i>
@@ -88,27 +114,61 @@
                                 }]
                             }
                         ]
+                    },
+                    {
+                        "nodeName": "父节点3",
+                        "children": []
                     }
                 ],
-                open: true,
+                open: false,
                 childName: 'children',
                 field: {
                     left: {
-                        title: '{{nodeName}}',
                         click: function (data, $this) {
+                            var $node = $this.closest('.coo-tree-item').next();
+                            if ($node.children().length === 0) {
+                                $.ajax({
+                                    url: 'https://www.easy-mock.com/mock/5d479a7b531c753181e33016/cooui/tree',
+                                    success: function (data) {
+                                        //眼睛和一切的点击操作必须要自己绑定
+                                        $(data.data).each(function (index, item) {
+                                            var entryDiv = $([
+                                                '<div class="coo-tree-set">',
+                                                '    <div class="coo-tree-item">',
+                                                '        <span class="coo-left-box"></span>',
+                                                '        <span class="coo-right-box"><i class="icon icon-tree-close"></i></span>',
+                                                '        <span class="coo-middle-box" title="' +
+                                                item.nodeName + '">' +
+                                                item.nodeName +
+                                                '</span>',
+                                                '    </div>',
+                                                '</div>'
+                                            ].join(''));
+                                            $node.append(entryDiv);
+                                            entryDiv.find('.coo-middle-box')
+                                                .click(function () {
+                                                    console.log(item);
+                                                })
+                                        })
+                                    }
+                                })
+                            }
+                        }
+                    },
+                    right: {
+                        edit: ['eye'],
+                        click: function (data) {
                             console.log(data);
                         }
                     },
                     middle: {
                         title: '{{nodeName}}',
-                        temple: '{{nodeName}}',
+                        templet: function (data) {
+                            return data.nodeName
+                        },
                         click: function (data, $this) {
                             console.log(data);
                         }
-                    },
-                    right: {
-                        title: '{{nodeName}}',
-                        // temple: '{{nodeName}}'
                     }
                 }
             })

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cooCell</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/cell.css">
+</head>
+
+<body>
+    <div id="j-cell" style="width: 300px;"></div>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/cell.js"></script>
+    <script>
+        $(function () {
+            $('#j-cell').cell({
+                data: [{
+                        "nodeName": "节点1"
+                    },
+                    {
+                        "nodeName": "节点2"
+                    },
+                    {
+                        "nodeName": "节点3"
+                    }
+                ],
+                field: {
+                    left: {
+                        title: '{{nodeName}}',
+                        templet: '{{nodeName}}',
+                        click: function (data, $elem) {
+                            console.log(data , 'left');
+                        }
+                    },
+                    right: {
+                        title: '{{nodeName}}',
+                        templet: '{{nodeName}}',
+                        click: function (data, $elem) {
+                            console.log(data , 'right');
+                        }
+                    },
+                    middle: {
+                        title: '{{nodeName}}',
+                        templet: function (data) {
+                            return data.nodeName
+                        },
+                        click: function (data, $elem) {
+                            console.log(data , 'middle');
+                        }
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

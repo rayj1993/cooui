@@ -1,0 +1,40 @@
+.coo-cell {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.coo-cell .coo-cell-item {
+  white-space: nowrap;
+  font-size: 14px;
+  height: 20px;
+  padding: 3px 0;
+  cursor: pointer;
+}
+.coo-cell .coo-cell-item:hover {
+  background-color: #f5f7fa;
+}
+.coo-cell .coo-left-box {
+  float: left;
+  min-width: 5px;
+  min-height: 20px;
+}
+.coo-cell .coo-right-box {
+  float: right;
+}
+.coo-cell .coo-middle-box {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.coo-cell .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  white-space: nowrap;
+  letter-spacing: -1em;
+  text-indent: -999em;
+  vertical-align: middle;
+}
+.coo-cell .icon:before {
+  content: '\3000';
+}

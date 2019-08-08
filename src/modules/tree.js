@@ -12,7 +12,7 @@
         factory();
     }
 }(this, function () {
-    $.fn.cooTree = function (options) {
+    $.fn.tree = function (options) {
         return new Tree($(this), options);
     };
 
@@ -152,7 +152,9 @@
 
         elem.children().children('.coo-middle-box').on('click', function () {
             $(this).siblings('.coo-left-box').children('.icon-tree-bottom').toggleClass('icon-tree-right').parent().parent().next('.coo-tree-node').toggle();
-            field.middle.click(item, $(this));
+            if (field.left && typeof field.left.click === 'function') {
+                field.middle.click(item, $(this));
+            }
         });
 
         elem.children().children('.coo-left-box').on('click', function () {

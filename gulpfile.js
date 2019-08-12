@@ -12,7 +12,7 @@ gulp.task('js', function () {
 })
 
 gulp.task('less', function () {
-    return gulp.src('src/less/*.less')
+    return gulp.src('src/less/**/*.less')
     .pipe(less())
     .pipe(gulp.dest('src/css/'))
 })
@@ -22,7 +22,7 @@ gulp.task('watch',function(){
 })
 
 gulp.task('css',['less'], function () {
-    return gulp.src('src/css/*.css')
+    return gulp.src('src/css/**/*.css')
     .pipe(cleanCss())
     .pipe(gulp.dest('dist/css/'))
 })

@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+@import '../variable.less';
+
+/**
+ *
+ * @pagination.css
+ * @author wenjielei
+ * @create 19-08-12
+ *
+**/
+
+.coo-page {
+    display: inline-block;
+    min-width: 18px;
+    padding: 0 2px;
+    margin: 0 5px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid transparent;
+    text-align: center;
+    color: @gray;
+    font-size: 14px;
+    -webkit-transition: border-color .15s, background-color .15s;
+    transition: border-color .15s, background-color .15s;
+    vertical-align: top;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    svg{
+        width: 20px;
+        height: 20px;
+        margin-top: 3px;
+    }
+}
+
+span.coo-page {
+    cursor: default;
+}
+
+a.coo-page:hover {
+    border-color: @silver;
+    color: @gray;
+    text-decoration: none;
+}
+
+
+.ui-page-prev,
+.ui-page-next {
+  background: url(@{urlImage}/pagination/icons-prev-next.png) no-repeat;
+  background: none, none;
+  text-align: center;
+  fill: currentColor;
+  overflow: hidden;
+}

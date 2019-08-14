@@ -3,14 +3,12 @@
 @import '../variable.less';
 
 /**
- *
  * @pagination.css
  * @author wenjielei
  * @create 19-08-12
- *
-**/
-
-.coo-page {
+ */
+.coo-page-box {
+  .coo-page {
     display: inline-block;
     min-width: 18px;
     padding: 0 2px;
@@ -29,29 +27,74 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    svg{
-        width: 20px;
-        height: 20px;
-        margin-top: 3px;
-    }
-}
+  }
 
-span.coo-page {
+  .coo-page>svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+  }
+
+  span.coo-page {
     cursor: default;
-}
+  }
 
-a.coo-page:hover {
+  a.coo-page:hover {
     border-color: @silver;
     color: @gray;
     text-decoration: none;
-}
+  }
 
+  .coo-page-prev,
+  .coo-page-next {
+    background: url("@{urlImage}/pagination/icons_prev_next.png") no-repeat;
+    background: none, none;
+    text-align: center;
+    // 只在svg格式中存在 currentColor关键字的使用值是color 属性值的计算值
+    fill: currentColor;
+    overflow: hidden;
+  }
 
-.ui-page-prev,
-.ui-page-next {
-  background: url(@{urlImage}/pagination/icons-prev-next.png) no-repeat;
-  background: none, none;
-  text-align: center;
-  fill: currentColor;
-  overflow: hidden;
+  /* 180度旋转 */
+  .coo-page-next svg {
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
+  .coo-page-prev {
+    margin-left: 0;
+  }
+  .coo-page-next {
+    margin-right: 0;
+  }
+  // ie8 兼容模式
+  .coo-page-prev {
+    background-position: 0 -60px;
+  }
+
+  // 当为第一页时，改变图片位置
+  span.coo-page-prev {
+    background-position: 0 -90px;
+    color: @grayDisabled;
+  }
+  // 当为最后一页时，改变图片位置
+  span.coo-page-next {
+    background-position: 0 -30px;
+    color: @grayDisabled;
+  }
+
+  // 省略号
+  .coo-page-ellipsis {
+    display: inline-block;
+  }
+  // 被选中
+  .coo-page-current {
+    color: #fff;
+    background-color: @backgroundBlue;
+  }
+  // 为short准备的
+  .coo-page-text {
+    color: @dark;
+  }
 }

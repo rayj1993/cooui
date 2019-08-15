@@ -17,22 +17,21 @@
     <script src="../src/modules/pagination.js"></script>
     <script>
         $('#testPage1').pagination({
-            length: 80,
-            visible: 3,
+            length: 100,
             every: 10,
             current: 1,
             onClick: function () {
                 console.log(arguments)
             }
         })
-        $('.testPage1').pagination({
-            length: 80,
-            every: 10,
-            current: 1,
-            onClick: function () {
-                console.log(arguments)
-            }
-        })
+        // $('.testPage1').pagination({
+        //     length: 80,
+        //     every: 10,
+        //     current: 1,
+        //     onClick: function () {
+        //         console.log(arguments)
+        //     }
+        // })
     </script>
 </body>
 

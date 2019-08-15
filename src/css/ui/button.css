@@ -1,0 +1,190 @@
+@charset "utf-8";
+/**
+ * @button.css
+ * @author wenjielei
+ * @create 19-08-15
+ */
+.disabled {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: default;
+  -ms-pointer-events: none;
+  pointer-events: none;
+}
+.coo-button {
+  display: inline-block;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #4c5161;
+  padding: 9px 15px;
+  min-width: 50px;
+  border: 1px solid #d0d0d5;
+  border-radius: 4px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-transition: border-color 0.15s, background-color 0.15s, opacity 0.15s;
+  transition: border-color 0.15s, background-color 0.15s, opacity 0.15s;
+}
+.coo-button.error {
+  border-color: #f4615c !important;
+}
+div.coo-button {
+  display: block;
+}
+button,
+[type="button"],
+[type="submit"] {
+  outline: 0;
+}
+input.coo-button,
+button.coo-button {
+  height: 20px;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.coo-button:hover {
+  color: #4c5161;
+  border-color: #ababaf;
+  text-decoration: none;
+}
+.coo-button-clip {
+  width: 0;
+  height: 0;
+  position: absolute;
+  clip: rect(0 0 0 0);
+}
+.coo-button-clip.coo-outline + label.coo-button {
+  outline: 1px dotted #2486ff;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+.coo-button:not(.disabled):active,
+.coo-button:not(.loading):active {
+  background-color: #f7f9fa;
+}
+.coo-button.disabled:hover,
+.coo-button.loading,
+.coo-button.loading:hover {
+  color: #4c5161;
+  background-color: #fff;
+  border-color: #d0d0d5;
+  cursor: default;
+}
+.coo-button-primary,
+.coo-button-primary.disabled:hover,
+.coo-button-primary.loading,
+.coo-button-primary.loading:hover {
+  border: 1px solid #2486ff;
+  background-color: #2486ff;
+  color: #fff;
+}
+.coo-button-primary:hover {
+  background-color: #0160d5;
+  border-color: #0160d5;
+  color: #fff;
+}
+.coo-button-primary:not(.disabled):active,
+.coo-button-primary:not(.loading):active {
+  background-color: #0057c3;
+  border-color: #0057c3;
+}
+.coo-button-success,
+.coo-button-success.disabled,
+.coo-button-success.disabled:hover,
+.coo-button-success.loading,
+.coo-button-success.loading:hover {
+  border: 1px solid #01cf97;
+  background-color: #01cf97;
+  color: #fff;
+}
+.coo-button-success:hover {
+  background-color: #00dba2;
+  border-color: #00dba2;
+  color: #fff;
+}
+.coo-button-success:not(.disabled):active,
+.coo-button-success:not(.loading):active {
+  background-color: #00bf8e;
+  border-color: #00bf8e;
+}
+.coo-button-warning,
+.coo-button-warning.disabled,
+.coo-button-warning.disabled:hover,
+.coo-button-warning.loading,
+.coo-button-warning.loading:hover {
+  border: 1 px solid #f4615c;
+  background-color: #f4615c;
+  color: #fff;
+}
+.coo-button-warning:hover,
+input.coo-button-warning:focus,
+button.coo-button-warning:focus {
+  background-color: #ff7772;
+  border-color: #ff7772;
+  color: #fff;
+}
+.coo-button-warning:not(.disabled):active,
+.coo-button-warning:not(.loading):active {
+  background-color: #dc5652;
+  border-color: #dc5652;
+}
+.coo-button.loading {
+  cursor: default;
+  -ms-pointer-events: none;
+  pointer-events: none;
+  color: transparent !important;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.coo-button.loading:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: no-repeat center;
+}
+.coo-button.loading:before,
+input.coo-button.loading {
+  background-image: url("images/button/loading.gif");
+}
+.coo-button-primary.loading:before,
+input.coo-button-primary.loading {
+  background-image: url("images/button/loading-primary.gif");
+}
+.coo-button-success.loading:before,
+input.coo-button-success.loading {
+  background-image: url("images/button/loading-success.gif");
+}
+.coo-button-warning.loading:before,
+input.coo-button-warning.loading {
+  background-image: url("images/button/loading-warning.gif");
+}
+.coo-button.loading::before {
+  background: url("images/button/loading-blue.png"), linear-gradient(transparent, transparent);
+  background-size: 100%;
+  -webkit-animation: spin 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
+}
+.coo-button-primary.loading::before,
+.coo-button-success.loading::before,
+.coo-button-warning.loading::before {
+  background: url("images/button/loading-white.png"), linear-gradient(transparent, transparent);
+  background-size: 100%;
+}
+@media \0screen\,screen\9  {
+  .coo-button.loading:before {
+    width: auto;
+    height: auto;
+    background-color: inherit;
+  }
+}

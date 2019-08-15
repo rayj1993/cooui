@@ -179,7 +179,7 @@
             }
 
             /**
-             * 分页数量默认保证为7个，...也算一个，可配置
+             * 分页数量默认保证为7个
              * 1. 12345 ... 20
              * 2. 1 ... 456 ... 20 
              */
@@ -188,7 +188,7 @@
                 for (var start = 1; start <= total; start++) {
                     long(start);
                 }
-                // 12345 ... 20 模式
+                // 12345 ... 20 模式 如果被选择数，在total的左侧，并且选择的数，不大于显示个数-1 为... 腾出一个位置
             } else if (current < total * 0.5 && current < visible - 1) {
                 if (current < visible - 1) {
                     for (start = 1; start < visible; start++) {
@@ -197,7 +197,7 @@
                 }
                 html.push('<span class="' + clEll + '">...</span>');
                 long(total);
-                // 1 ... 181920模式
+                // 1 ... 181920模式  不包含相等的模式 右侧时 并且7 10-6 + 2 = 6 5 永远是 最后的5个数
             } else if (current > total * 0.5 && current > total - visible + 2) {
                 long(1);
                 html.push('<span class="' + clEll + '">...</span>');

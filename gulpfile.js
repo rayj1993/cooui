@@ -10,10 +10,15 @@ gulp.task('js', function () {
     .pipe(uglify())
     .pipe(gulp.dest('dist/modules/'))
 })
-
+function swallowError(error) {
+    // If you want details of the error in the console
+  console.error(error.toString())
+  this.emit('end')
+}
 gulp.task('less', function () {
     return gulp.src('src/less/**/*.less')
     .pipe(less())
+    .on('error', swallowError)
     .pipe(gulp.dest('src/css/'))
 })
 

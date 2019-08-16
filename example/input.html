@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>input</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/ui/input.css">
+</head>
+
+<body>
+    <p>
+        <input class="coo-input" placeholder="coo-input">
+        <span class="coo-input"><input placeholder="span"></span>
+        <div class="coo-input"><input placeholder="div"></div>
+
+    </p>
+    <p>
+        <input class="coo-input" placeholder="readonly" readonly>
+        <input class="coo-input" placeholder="disabled" disabled>
+
+    </p>
+    <p>
+        <input class="coo-input error" placeholder="error" required>
+        <span class="coo-input"><input class="error" placeholder="error" required></span>
+    </p>
+    <div class="coo-input-box" style="width:400px;">
+        <input id="forInputFocus" maxlength="20" placeholder="占位符">
+        <div class="coo-input"></div>
+        <label for="forInputFocus" class="coo-input-count">
+            <span>0</span>/<span>20</span>
+        </label>
+    </div>
+    <h3>搜索框</h3>
+    <p>
+        <p>/* type='search'必须，类名'coo-search-input'可缺省 */</p>
+        <input type="search" class="coo-input">
+    </p>
+    <p>
+        <span class="coo-input coo-search-input">
+            <input type="search">
+            <a href="javascript:" class="coo-icon-search">搜索</a>
+        </span>
+    </p>
+    <p>
+        <span class="coo-input coo-search-input coo-search-right">
+            <input id="spanSearch" type="search" placeholder="测试">
+            <label class="coo-icon-search">搜索</label>
+        </span>
+    </p>
+    <div class="coo-input coo-search-input coo-search-right" style="width:268px;">
+        <input type="search" placeholder="测试">
+        <a href="javascript:" class="coo-icon-search">搜索</a>
+    </div>
+</body>
+
+</html>

@@ -88,10 +88,13 @@ button.coo-button {
     cursor: default;
 }
 
+// 因为disabled 需要悬浮于现状一个颜色，增加不可点击感
+// loading是背景图换了白色，添加背景色，和取消悬浮颜色，切合loading中的感觉
 .coo-button-primary,
 .coo-button-primary.disabled:hover,
 .coo-button-primary.loading,
-.coo-button-primary.loading:hover {
+.coo-button-primary.loading:hover 
+{
     border: 1px solid @backgroundBlue;
     background-color: @backgroundBlue;
     color: @white;
@@ -136,7 +139,7 @@ button.coo-button {
 .coo-button-warning.disabled:hover,
 .coo-button-warning.loading,
 .coo-button-warning.loading:hover {
-    border: 1 px solid @backgroundRed;
+    border: 1px solid @backgroundRed;
     background-color: @backgroundRed;
     color: @white;
 }
@@ -165,6 +168,7 @@ button.coo-button-warning:focus {
     background-position: center;
 }
 
+// 居中的写法
 .coo-button.loading:before {
     content: '';
     position: absolute;
@@ -212,7 +216,7 @@ input.coo-button-warning.loading {
     linear-gradient(transparent, transparent);
     background-size: 100%
 }
-
+/* 只支持IE6、7、8 */
 @media \0screen\,screen\9 {
     .coo-button.loading:before {
         width: auto;

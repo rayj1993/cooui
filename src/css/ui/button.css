@@ -116,7 +116,7 @@ button.coo-button {
 .coo-button-warning.disabled:hover,
 .coo-button-warning.loading,
 .coo-button-warning.loading:hover {
-  border: 1 px solid #f4615c;
+  border: 1px solid #f4615c;
   background-color: #f4615c;
   color: #fff;
 }
@@ -181,6 +181,7 @@ input.coo-button-warning.loading {
   background: url("images/button/loading-white.png"), linear-gradient(transparent, transparent);
   background-size: 100%;
 }
+/* 只支持IE6、7、8 */
 @media \0screen\,screen\9  {
   .coo-button.loading:before {
     width: auto;

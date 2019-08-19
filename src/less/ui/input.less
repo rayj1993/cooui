@@ -272,6 +272,7 @@ div.coo-search-right>.coo-icon-search {
     bottom: 0;
     left: 0;
     border: 1px solid @borderNormal;
+    border-radius: @borderRadius;
     -webkit-transition: border-color .15s;
     transition: border-color .15s;
 }
@@ -295,19 +296,19 @@ div.coo-search-right>.coo-icon-search {
     background-color: @borderHover;
 }
 
-.coo-search-right>.input:focus~.coo-icon-search:before {
+.coo-search-right>input:focus~.coo-icon-search:before {
     border-color: @borderFocus;
 }
 
-.coo-search-right>.input:focus~.coo-icon-search:after {
+.coo-search-right>input:focus~.coo-icon-search:after {
     background-color: @borderFocus;
 }
 
-.coo-search-right .ui-placeholder {
+.coo-search-right .coo-placeholder {
     z-index: 1;
 }
 
-span.ui-search-right>.ui-placeholder {
+span.coo-search-right>.coo-placeholder {
     margin-left: 0 !important;
     left: 0;
     *left: 9px;

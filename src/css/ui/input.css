@@ -233,6 +233,7 @@ div.coo-search-right > .coo-icon-search {
   bottom: 0;
   left: 0;
   border: 1px solid #d0d0d5;
+  border-radius: 4px;
   -webkit-transition: border-color 0.15s;
   transition: border-color 0.15s;
 }
@@ -252,16 +253,16 @@ div.coo-search-right > .coo-icon-search {
 .coo-search-right:hover .coo-icon-search:after {
   background-color: #ababaf;
 }
-.coo-search-right > .input:focus ~ .coo-icon-search:before {
+.coo-search-right > input:focus ~ .coo-icon-search:before {
   border-color: #2486ff;
 }
-.coo-search-right > .input:focus ~ .coo-icon-search:after {
+.coo-search-right > input:focus ~ .coo-icon-search:after {
   background-color: #2486ff;
 }
-.coo-search-right .ui-placeholder {
+.coo-search-right .coo-placeholder {
   z-index: 1;
 }
-span.ui-search-right > .ui-placeholder {
+span.coo-search-right > .coo-placeholder {
   margin-left: 0 !important;
   left: 0;
   *left: 9px;

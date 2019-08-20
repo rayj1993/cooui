@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+@import '../variable.less';
+
+/**
+ * @textarea.css
+ * @author wenjielei
+ * @create 19-08-19
+ */
+
+ textarea {
+     font-family: inherit;
+ }
+
+ textarea[rows='5'] {
+     height: 100px;
+ }
+
+ textarea[rows='6'] {
+     height: 120px;
+ }
+ textarea.coo-textarea,
+ .coo-textarea > textarea{
+    line-height: 20px;
+    padding: 9px 8px;
+    border: 1px solid @borderNormal;
+    border-radius: @borderRadius;
+    background-color: @white;
+    outline: none;
+    color: @dark;
+    font-size: 14px;
+    -webkit-transition: border-color .15s, background-color .15s;
+    transition: border-color .15s, background-color .15s;
+    word-break: break-all;
+    vertical-align: top;
+    resize: none;
+    overflow: auto;
+ }
+
+div.coo-textarea > textarea {
+    width: 100%;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.coo-textarea:hover,
+.coo-textarea > textarea:hover{
+    border-color: @borderHover;
+}
+
+.coo-textarea:focus,
+.coo-textarea > textarea:focus{
+    border-color: @borderFocus;
+}
+.coo-textarea-box{
+    position: relative;
+    padding: 2px 9px 32px 3px;
+    border-radius: @borderRadius;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.coo-textarea-box > textarea,
+.coo-textarea-box > .textarea{
+    display: block;
+    width: 100%;
+    line-height: 20px;
+    border: 0 none;
+    padding: 7px 0 9px;
+    right: -6px;
+    color: @dark;
+    font-size: 14px;
+    outline: none;
+    background: none;
+    word-break: break-all;
+    overflow: auto;
+    resize: none;
+    position: relative;
+    z-index: 1;
+}
+.coo-textarea-box > .coo-textarea{
+    position: absolute;
+    border: 1px solid @borderNormal;
+    border-radius: @borderRadius;
+    background-color: @white;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transition: border-color .15s, background-color .15s;
+    transition: border-color .15s, background-color .15s;
+}
+
+.coo-textarea-count {
+    position: absolute;
+    left: 8px;
+    right: 10px;
+    bottom: 0;
+    line-height: 32px;
+    color: @gray;
+    font-size: 12px;
+    text-align: right;
+    z-index: 1;
+}
+
+.coo-textarea-box:hover > .coo-textarea {
+    border-color: @borderHover;
+}
+
+.coo-textarea-box > textarea:focus ~ .coo-textarea,
+.coo-textarea-box > .textarea:focus ~ .coo-textarea{
+    border-color: @borderFocus;
+}
+.coo-textarea-box .coo-placeholder {
+    padding: 7px !important;
+    z-index: 1;
+}
+
+.coo-textarea[disabled],
+.coo-textarea > textarea[disabled]{
+    background-color: @light;
+}
+.coo-textarea[disabled]:hover,
+.coo-textarea > textarea[disabled]:hover,
+.coo-textarea[readonly]:hover,
+.coo-textarea > textarea[readonly]:hover,
+.coo-textarea[readonly]:focus,
+.coo-textarea > textarea[readonly]:focus {
+  border-color: @borderNormal;
+}
+textarea[readonly],
+textarea[disabled],
+textarea.disabled {
+  resize: none;
+}
+
+
+/* error */
+.coo-textarea.error,
+.coo-textarea > .error {
+  border-color: @red !important;
+}

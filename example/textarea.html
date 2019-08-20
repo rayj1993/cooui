@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>textarea</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/ui/textarea.css">
+    <style>
+        /* 参数什么的纯示意 */
+        .my_custom_li {
+            float: left;
+            background-color: #E7F7FC;
+            padding: 5px 10px;
+            margin: 5px 2px 0 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ui-textarea-box>input.textarea {
+            display: inline-block;
+            width: 110px;
+            padding: 5px 0;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <textarea class="coo-textarea"></textarea>
+    </p>
+    <p>
+        <div class="coo-textarea"><textarea rows="8"></textarea></div>
+    </p>
+    <p>
+        <textarea class="coo-textarea" readonly></textarea>
+    </p>
+    <p>
+        <textarea class="coo-textarea" disabled></textarea>
+    </p>
+    <p>
+        <textarea class="coo-textarea error"></textarea>
+    </p>
+    <p>
+        <div class="coo-textarea"><textarea class="error"></textarea></div>
+    </p>
+    <p>
+        <div class="coo-textarea-box" style="width:500px;">
+            <textarea id="forFocusable" maxlength="250" rows="5"></textarea>
+            <div class="coo-textarea"></div>
+            <!-- 点击任意区域文本域都能focus，可缺省 -->
+            <label for="forFocusable" class="coo-textarea-count">
+                <span>0</span>/<span>250</span>
+            </label>
+        </div>
+    </p>
+    <p>
+        <div class="coo-textarea-box" style="width:500px; min-height:100px;">
+            <!-- QQ号码项示意 -->
+            <a href="javascript:" class="my_custom_li">3215648852 x</a>
+            <!-- 后面的输入框 -->
+            <input id="forFocus2" class="textarea">
+            <!-- 边框元素，注意使用label元素并使for值等于input的id -->
+            <label class="coo-textarea" for="forFocus2"></label>
+            <!-- 计数效果 -->
+            <label for="forFocus2" class="coo-textarea-count">
+                <span>1</span>/<span>10</span>
+            </label>
+        </div>
+    </p>
+</body>
+
+</html>

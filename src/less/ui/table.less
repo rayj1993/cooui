@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+@import '../variable.less';
+
+/**
+ *
+ * @table.css
+ * @author wenjielei
+ * @create 19-08-20
+ *
+ */
+
+@tableBorderNormal: #ededed;
+
+.coo-table {
+    width: 100%;
+    line-height: 21px;
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse\9;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 1, .2);
+    border: 1px solid @borderNormal;
+    border: 0 rgba(1, 2, 3, 0);
+}
+
+.coo-table thead td,
+.coo-table th {
+    line-height: 50px;
+    background-color: @light;
+    text-align: left;
+    font-weight: left;
+    font-weight: normal;
+    font-style: normal;
+    margin: 0;
+}
+.coo-table tbody td{
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: @backgroundList;
+    border-bottom: 1px solid @tableBorderNormal; 
+}
+
+.coo-table td,
+.coo-table th{
+    padding: 0 20px;
+}
+
+.coo-table tr {
+    cursor: default;
+}
+
+.coo-table tr:hover td{
+    background-color: @backgroundListHover;
+}
+
+.coo-table tr.selected td {
+    background-color: @backgroundListSelected;
+}
+
+.coo-table tr:last-child td{
+    padding-bottom: 15px;
+    border-bottom: 0;
+}
+
+.coo-table ~ .coo-loading{
+    height: 300px;
+}

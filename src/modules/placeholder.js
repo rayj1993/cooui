@@ -18,7 +18,7 @@
      * @使用示例
      * $('input').plcaeholder();
      */
-
+    var PLACEHOLDER = 'placeholder';
     $.fn[PLACEHOLDER] = function () {
         return $(this).each(function () {
             var placeholder = $(this).data(PLACEHOLDER);
@@ -68,7 +68,7 @@
 
         // 插入
 
-        var isHide = el.is(':visibel') == false;
+        var isHide = el.is(':visible') == false;
         // 当input是内联时候，后置；块状时候，下置
 
         if (isHide == false) {

@@ -74,6 +74,25 @@ button.coo-button {
   border-color: #d0d0d5;
   cursor: default;
 }
+.coo-button-default,
+.coo-button-default.disabled,
+.coo-button-default.disabled:hover,
+.coo-button-default.loading,
+.coo-button-default.loading:hover {
+  border: 1px solid #a2a9b6;
+  background-color: #a2a9b6;
+  color: #fff;
+}
+.coo-button-default:hover {
+  background-color: #bfc7d6;
+  border-color: #bfc7d6;
+  color: #fff;
+}
+.coo-button-default:not(.disabled):active,
+.coo-button-default:not(.loading):active {
+  background-color: #858b96;
+  border-color: #858b96;
+}
 .coo-button-primary,
 .coo-button-primary.disabled:hover,
 .coo-button-primary.loading,

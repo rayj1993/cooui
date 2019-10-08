@@ -90,6 +90,28 @@ button.coo-button {
 
 // 因为disabled 需要悬浮于现状一个颜色，增加不可点击感
 // loading是背景图换了白色，添加背景色，和取消悬浮颜色，切合loading中的感觉
+.coo-button-default,
+.coo-button-default.disabled,
+.coo-button-default.disabled:hover,
+.coo-button-default.loading,
+.coo-button-default.loading:hover {
+    border: 1px solid @backgroundGray;
+    background-color: @backgroundGray;
+    color: @white;
+}
+
+.coo-button-default:hover {
+    background-color: @backgroundGrayHover;
+    border-color: @backgroundGrayHover;
+    color: @white;
+}
+
+.coo-button-default:not(.disabled):active,
+.coo-button-default:not(.loading):active {
+    background-color: @backgroundGrayActive;
+    border-color: @backgroundGrayActive;
+}
+
 .coo-button-primary,
 .coo-button-primary.disabled:hover,
 .coo-button-primary.loading,

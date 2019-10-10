@@ -33,8 +33,27 @@
             <s class="ui-loading-icon"></s>
         </div>
     </p>
+    <p>
+        <div class="ui-loading ui-loading-primary" style="height:100px;">
+            <s class="ui-loading-icon"></s>
+        </div>
+    </p>
+    <p id="j-loading" style="height: 100px;">
+
+    </p>
     <script src="../src/plugins/jquery-1.11.3.min.js"></script>
     <script src="../src/modules/loading.js"></script>
+    <script>
+        $('#j-loading').loading({
+            // 是否是蓝色背景
+            primary: true,
+            // 是否是小尺寸旋转图标
+            small: false,
+            display: false,
+            // 是否重新生成旋转图标元素（会append在当前容器中）
+            create: false
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+@import '../variable.less';
+
+/**
+ * @radio.css
+ * @author wenjielei
+ * @create 19-10-11
+ */
+
+input[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.coo-radio {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(@borderNormal, .99);
+    /* IE7-IE8 ignore this */
+    border-radius: 50%;
+    background-color: @white;
+    box-sizing: border-box;
+    vertical-align: -.5ex;
+    *vertical-align: 0;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: border-color .2s;
+    transition: border-color .2s;
+    overflow: hidden;
+}
+
+:not(:disabled)+.coo-radio:hover {
+    border-color: @borderHover
+}
+
+:focus+.coo-radio {
+    border-color: rgba(@borderFocus, .99);
+}
+
+.coo-radio::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 4px auto 0;
+    border-radius: 50%;
+    background-color: @backgroundBlue;
+    visibility: hidden;
+}
+
+:checked+.coo-radio::before {
+    visibility: visible;
+    -webkit-animation: bounceIn .2s;
+    animation: bounceIn .2s;
+}
+
+:disabled+.coo-radio,
+.coo-radio.disabled {
+    border-color: @borderHover;
+    opacity: .38;
+}
+
+/* error */
+.error.coo-radio {
+    border-color: @red;
+}
+
+/*IE7, IE8 使用图片作UI*/
+@media \0screen\,screen\9 {
+    .coo-radio {
+        background: url("@{urlImage}/Radio/radio.png") no-repeat;
+    }
+
+    .coo-radio:hover {
+        background-position: 0 -20px;
+    }
+
+    [checked]+.coo-radio {
+        background-position: 0 -40px;
+    }
+
+    [defaultChecked]+.coo-radio {
+        background-position: 0 -40px;
+    }
+
+    [checked]+.coo-radio:hover,
+    [checked][disabled]+.coo-radio {
+        /* disabled态使用高亮边框 */
+        background-position: 0 -60px;
+    }
+
+    [defaultChecked]+.coo-radio:hover,
+    [defaultChecked][disabled]+.coo-radio {
+        /* disabled态使用高亮边框 */
+        background-position: 0 -60px;
+    }
+
+    [disabled]+.coo-radio {
+        background-position: 0 -20px;
+        filter: alpha(opacity=38);
+    }
+}

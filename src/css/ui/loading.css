@@ -6,71 +6,71 @@
  * @create 19-10-08
  *
  */
-.ui-loading {
+.coo-loading {
   position: relative;
 }
-.ui-loading.ui-loading-animation {
+.coo-loading.coo-loading-animation {
   -webkit-animation: fadeIn 0.5s both;
   animation: fadeIn 0.5s both;
 }
-.ui-loading-icon {
+.coo-loading-icon {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background: url(images/Loading/loading-blue.gif);
+  background: url("images/Loading/loading-blue.gif");
   /* IE10+ */
-  background: url(images/Loading/loading-blue.png), linear-gradient(transparent, transparent);
+  background: url("images/Loading/loading-blue.png"), linear-gradient(transparent, transparent);
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
 }
-.ui-loading > .ui-loading-icon {
+.coo-loading > .coo-loading-icon {
   display: block;
   position: absolute;
   left: 50%;
   top: 50%;
   margin: -15px 0 0 -15px;
 }
-s.ui-loading-icon {
+s.coo-loading-icon {
   width: 20px;
   height: 20px;
-  background: url(images/Loading/loading-blue-s.gif);
-  background: url(images/Loading/loading-blue-s.png), linear-gradient(transparent, transparent);
+  background: url("images/Loading/loading-blue-s.gif");
+  background: url("images/Loading/loading-blue-s.png"), linear-gradient(transparent, transparent);
 }
-.ui-loading > s.ui-loading-icon {
+.coo-loading > s.coo-loading-icon {
   margin: -10px 0 0 -10px;
 }
-.ui-loading-primary {
+.coo-loading-primary {
   background-color: #2486ff;
 }
-.ui-loading-primary > .ui-loading-icon {
-  background: url(images/Loading/loading-white.gif);
-  background: url(images/Loading/loading-white.png), linear-gradient(transparent, transparent);
+.coo-loading-primary > .coo-loading-icon {
+  background: url("images/Loading/loading-white.gif");
+  background: url("images/Loading/loading-white.png"), linear-gradient(transparent, transparent);
 }
-.ui-loading-primary > s.ui-loading-icon {
-  background: url(images/Loading/loading-white-s.gif);
-  background: url(images/Loading/loading-white-s.png), linear-gradient(transparent, transparent);
+.coo-loading-primary > s.coo-loading-icon {
+  background: url("images/Loading/loading-white-s.gif");
+  background: url("images/Loading/loading-white-s.png"), linear-gradient(transparent, transparent);
 }
 /* 更现代浏览器纯CSS生成 */
 @supports (mask: none) or (-webkit-mask: none) {
-  .ui-loading-icon {
+  .coo-loading-icon {
     position: relative;
     border-radius: 50%;
     -webkit-mask: radial-gradient(transparent 12px, #000 13px);
     mask: radial-gradient(transparent 12px, #000 13px);
     overflow: hidden;
   }
-  s.ui-loading-icon {
+  s.coo-loading-icon {
     -webkit-mask: radial-gradient(transparent 8px, #000 9px);
     mask: radial-gradient(transparent 8px, #000 9px);
   }
-  .ui-loading-icon,
-  s.ui-loading-icon,
-  .ui-loading-primary > .ui-loading-icon,
-  .ui-loading-primary > s.ui-loading-icon {
+  .coo-loading-icon,
+  s.coo-loading-icon,
+  .coo-loading-primary > .coo-loading-icon,
+  .coo-loading-primary > s.coo-loading-icon {
     background: none;
   }
-  .ui-loading-icon::before,
-  .ui-loading-icon::after {
+  .coo-loading-icon::before,
+  .coo-loading-icon::after {
     content: '';
     position: absolute;
     width: 50%;
@@ -78,17 +78,17 @@ s.ui-loading-icon {
     left: 50%;
     top: 0;
   }
-  .ui-loading-icon::after {
+  .coo-loading-icon::after {
     left: 0;
     background: linear-gradient(to top, #2486ff, transparent 90%);
   }
-  .ui-loading-icon::before {
+  .coo-loading-icon::before {
     background-color: #2486ff;
   }
-  .ui-loading-primary > .ui-loading-icon::before {
+  .coo-loading-primary > .coo-loading-icon::before {
     background-color: #fff;
   }
-  .ui-loading-primary > .ui-loading-icon::after {
+  .coo-loading-primary > .coo-loading-icon::after {
     background: linear-gradient(to top, #fff, transparent 90%);
   }
 }

@@ -13,7 +13,7 @@
     }
 }(this, function () {
     var joiner = '-';
-    var CL = 'ui-loading';
+    var CL = 'coo-loading';
     var CL_ICON = CL + joiner + 'icon';
     var CL_BUTTON_LOADING = 'loading';
 

@@ -2,7 +2,7 @@
  * @pagination.js
  * @author wenjielei
  * @version 0.0.1
- * @Created: 19-08-13
+ * @Created 19-08-13
  */
 
 (function (global, factory) {

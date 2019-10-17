@@ -2,7 +2,7 @@
  * @placeholder.js
  * @author wenjielei
  * @version
- * Created: 19-08-29
+ * @Created 19-08-29
  */
 
 (function (global, factory) {

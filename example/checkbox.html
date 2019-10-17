@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>checkbox</title>
-    <style>
-        body .asd{
-            color: blue;
-        }
-        
-        .asd{
-            color: red;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../src/css/ui/radio.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/ui/checkbox.css">
 </head>
+
 <body>
-    <div class="asd">asd</div>
+    <p>
+        <input type="radio" id="radio1" name="radio">
+        <label for="radio1" class="coo-radio"></label>
+        <label for="radio1">单选项1</label>
+        <input type="radio" id="radio2" name="radio">
+        <label for="radio2" class="coo-radio"></label>
+        <label for="radio2">单选项2</label>
+        <input type="radio" id="radio3" name="radio">
+        <label for="radio3" class="coo-radio"></label>
+        <label for="radio3">单选项3</label>
+        <input type="radio" id="radio4" name="radioDisabled" disabled="">
+        <label for="radio4" class="coo-radio"></label>
+        <label for="radio4">单选项4</label>
+        <input type="radio" id="radio5" name="radioDisabled" disabled="" checked="">
+        <label for="radio5" class="coo-radio"></label>
+        <label for="radio5">单选项5</label>
+    </p>
+    <p>
+        <input type="checkbox" id="checkbox1" name="checkbox">
+        <label for="checkbox1" class="coo-checkbox"></label>
+        <label for="checkbox1">复选项1</label>
+        <input type="checkbox" id="checkbox2" name="checkbox">
+        <label for="checkbox2" class="coo-checkbox"></label>
+        <label for="checkbox2">复选项2</label>
+        <input type="checkbox" id="checkbox3" name="checkbox">
+        <label for="checkbox3" class="coo-checkbox"></label>
+        <label for="checkbox3">复选项3</label>
+        <input type="checkbox" id="checkbox4" name="checkbox2" disabled="">
+        <label for="checkbox4" class="coo-checkbox"></label>
+        <label for="checkbox4">复选项4</label>
+        <input type="checkbox" id="checkbox5" name="checkbox2" disabled="" checked="">
+        <label for="checkbox5" class="coo-checkbox"></label>
+        <label for="checkbox5">复选项5</label>
+    </p>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/radio.js"></script>
+    <script src="../src/modules/checkbox.js"></script>
 </body>
+
 </html>

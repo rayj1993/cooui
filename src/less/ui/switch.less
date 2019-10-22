@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+@import '../variable.less';
+
+/**
+ * @Switch.css
+ * @author wenjielei
+ * @create 19-10-22
+ */
+
+.coo-switch {
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+  border: 2px solid;
+  border-radius: 26px;
+  background-color: currentColor;
+  box-sizing: border-box;
+  color: @silver;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  cursor: pointer;
+}
+
+.coo-switch::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: @white;
+    -webkit-transition: margin-left .2s;
+    transition: margin-left .2s;
+}
+
+:active + .coo-switch::before {
+    box-shadow: inset 1px 1px 1px rgba(0,0,0,.1);
+}
+
+:checked + .coo-switch {
+  color: @blue;
+}
+:checked + .coo-switch::before {
+  margin-left: 18px;
+}
+
+:disabled + .coo-switch {
+  opacity: .38;
+  cursor: default;
+}
+
+:focus + .coo-switch,
+.coo-switch:hover {
+    color: @gray;
+}
+:checked:focus + .coo-switch,
+:checked + .coo-switch:hover {
+  color: @darkblue;
+}
+
+:disabled + .coo-switch:hover {
+   color: @silver;
+}
+:checked:disabled + .coo-switch:hover {
+  color: @blue;
+}
+
+/*IE7, IE8 使用图片作UI*/
+@media \0screen\,screen\9 {
+    .coo-switch {
+        border: 0 none;
+        background: url(#{@urlImage}/Switch/switch.png) no-repeat;
+    }
+    [checked] + .coo-switch {
+        background-position: 0 -30px;
+    }
+    [defaultChecked] + .coo-switch {
+        background-position: 0 -30px;
+    }
+    [disabled] + .coo-switch {
+        filter: alpha(opacity=38);
+        cursor: default;
+    }
+}

@@ -14,7 +14,7 @@
     //require('plugin/jquery');
 
     if (typeof require == 'function') {
-        require('common/ui/enhance');
+        require('enhance');
     }
 
     /**

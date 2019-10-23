@@ -15,7 +15,7 @@
 }(this, function (require) {
     // require
     if (typeof require == 'function') {
-        require('common/ui/keyboard');
+        require('keyboard');
     } else if (!window.Keyboard && window.console) {
         window.console.warn('you may forget include keyboard.js');
     }

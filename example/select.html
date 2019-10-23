@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>select</title>
+    <link rel="stylesheet" href="../src/css/ui/select.css">
+</head>
+
+<body>
+    <select>
+        <option disabled>选项1</option>
+        <option>选项2</option>
+        <option>选项3</option>
+        <option selected>选项4</option>
+        <option>选项5</option>
+        <option>选项6</option>
+    </select>
+    <select multiple>
+        <option>选项1</option>
+        <option selected>选项2</option>
+        <option selected>选项3</option>
+        <option>选项4</option>
+        <option disabled>选项5</option>
+        <option>选项6</option>
+    </select>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/select.js"></script>
+    <script>
+        $('select').selectMatch();
+        $(function () {
+            var sel = $('select');
+            console.log(sel)
+            sel.find('option').eq(1).prop('selected', true);
+            // peak主题下，亦可以使用sel.refresh()
+            sel.selectMatch();
+        });
+    </script>
+</body>
+
+</html>

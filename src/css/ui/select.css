@@ -1,0 +1,196 @@
+@charset "utf-8";
+/**
+ *
+ * @select.css
+ * @author wenjielei
+ * @create 19-10-23
+ *
+**/
+select {
+  display: inline-block;
+  height: 40px;
+  margin: 0;
+  border: 1px solid #d0d0d5;
+  border-right-width: 27px;
+  opacity: 0.0001;
+  font-size: 14px;
+  font-family: simsun;
+  filter: alpha(opacity=0);
+  vertical-align: middle;
+}
+select[multiple] {
+  height: auto;
+  font-size: 38px;
+  font-size: calc(34px - 1px);
+  font-family: simsun;
+  padding: 0;
+  vertical-align: top;
+  border-right-width: 1px;
+  cursor: pointer;
+}
+select[multiple] > option {
+  min-height: 38px;
+  height: 38px;
+  padding: 0;
+}
+select[multiple] > option:disabled {
+  cursor: default;
+}
+select[hidden],
+select[hidden] + .coo-select {
+  display: none;
+}
+.coo-select {
+  display: inline-block;
+  height: 40px;
+  line-height: 20px;
+  vertical-align: middle;
+  -webkit-animation: fadeIn 0.2s;
+  animation: fadeIn 0.2s;
+  font-size: 14px;
+  position: relative;
+}
+[multiple] ~ .coo-select {
+  vertical-align: top;
+}
+.coo-select.active {
+  z-index: 3;
+}
+.coo-select-button {
+  display: block;
+  height: 20px;
+  padding: 9px 27px 9px 12px;
+  color: #4c5161;
+  border: 1px solid #d0d0d5;
+  border-radius: 4px;
+  background-color: #fff;
+  text-decoration: none;
+  -webkit-transition: border-color 0.15s, background-color 0.15s;
+  transition: border-color 0.15s, background-color 0.15s;
+  cursor: pointer;
+}
+.coo-select-button:hover {
+  color: #4c5161;
+  border-color: #ababaf;
+}
+:not(:disabled) + .coo-select > .coo-select-button:active {
+  background-color: #f7f9fa;
+}
+.active > a.coo-select-button {
+  border-color: #2486ff;
+  border-radius: 4px 4px 0 0;
+}
+.reverse > a.coo-select-button {
+  border-radius: 0 0 4px 4px;
+}
+.coo-select-text {
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.coo-select-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url(#{@urlImage}/Select/icon-arrow.png) no-repeat center;
+  background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cGF0aCBmaWxsPSIjMjQ4NmZmIiBkPSJNMTQ1LjY1OSw2OC45NDljLTUuMTAxLTUuMjA4LTEzLjM3Mi01LjIwOC0xOC40NzMsMEw5OS40NzksOTcuMjMzIEw3MS43NzIsNjguOTQ5Yy01LjEtNS4yMDgtMTMuMzcxLTUuMjA4LTE4LjQ3MywwYy01LjA5OSw1LjIwOC01LjA5OSwxMy42NDgsMCwxOC44NTdsNDYuMTgsNDcuMTRsNDYuMTgxLTQ3LjE0IEMxNTAuNzU5LDgyLjU5OCwxNTAuNzU5LDc0LjE1NywxNDUuNjU5LDY4Ljk0OXoiLz48L3N2Zz4NCg==) no-repeat center, none;
+  background-size: 20px 20px;
+  right: 7px;
+  top: 10px;
+}
+.coo-select-datalist {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 39px;
+  display: none;
+  max-height: 304px;
+  padding: 0;
+  border: 1px solid #2486ff;
+  background-color: #fff;
+  overflow: auto;
+}
+[multiple] ~ .coo-select > .coo-select-datalist {
+  position: static;
+  display: block;
+  max-height: none;
+  height: inherit;
+  border-color: #d0d0d5;
+  border-radius: 4px;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+[multiple]:hover ~ .coo-select > .coo-select-datalist {
+  border-color: #ababaf;
+}
+[multiple]:focus ~ .coo-select > .coo-select-datalist {
+  border-color: #2486ff;
+}
+.coo-select-datalist::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.coo-select-datalist::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 8px;
+}
+.coo-select-datalist::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+.coo-select-datalist::-webkit-scrollbar-track-piece {
+  background-color: #ddd;
+}
+.active > .coo-select-datalist {
+  display: block;
+}
+.reverse > .coo-select-datalist {
+  top: auto;
+  bottom: 39px;
+}
+.coo-select-datalist-li {
+  display: block;
+  line-height: 20px;
+  padding: 9px 12px;
+  color: #4c5161;
+  background-color: #fff;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-transition: background-color 0.15s;
+  transition: background-color 0.15s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.coo-select-datalist-li:empty {
+  display: none;
+}
+.coo-select-datalist-li:hover,
+[multiple] ~ .coo-select .coo-select-datalist-li[href] {
+  color: #4c5161;
+  background-color: #f0f7ff;
+}
+.coo-select-datalist > .selected {
+  background-color: #e0f0ff;
+}
+/* disabled */
+select[disabled] {
+  cursor: default;
+}
+select[disabled] + .coo-select {
+  opacity: 0.38;
+  filter: alpha(opacity=38);
+  -webkit-animation: none;
+  animation: none;
+}
+select[disabled] + .coo-select .coo-select-button,
+select[disabled] + .coo-select .coo-select-datalist {
+  cursor: default;
+  border-color: #ababaf;
+}
+/* error */
+.error .coo-select-button,
+.error[multiple] ~ .coo-select .coo-select-datalist {
+  border-color: #f4615c;
+}

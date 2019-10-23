@@ -14,7 +14,7 @@
 }(this, function (require) {
     var win = window;
     if (typeof require === 'function') {
-        require('common/ui/radio');
+        require('radio');
     } else if (!$().propMatch && win.console) {
         win.console.error('need radio.js');
     }

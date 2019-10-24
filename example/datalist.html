@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>datalist</title>
+    <link rel="stylesheet" href="../src/css/ui/datalist.css">
+</head>
+
+<body>
+    <form action="datalist.html">
+        <input class="ui-input mr10" type="search" id="ajaxSearch" name="key" size="30" placeholder="输入字母"> <input
+            type="submit" id="sSubmit" value="搜索">
+    </form>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/datalist.js"></script>
+    <script>
+        new Datalist($('#ajaxSearch'), {
+            data: {
+                url: '../../common/cgi/search.html',
+                data: {
+                    userid: 1
+                },
+                success: function () {
+                    console.log('success callback success!');
+                },
+                error: function (response, status) {
+                    console.log('error:' + status);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

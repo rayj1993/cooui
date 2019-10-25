@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tips</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/ui/tips.css">
+</head>
+
+<body>
+    <p><button title="提示文字">hover我</button></p>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/follow.js"></script>
+    <script src="../src/modules/tips.js"></script>
+    <script>
+        $('button').tips({
+            align: 'reverse'
+        })
+        // new Tips($('button'), {
+        // });
+    </script>
+</body>
+
+</html>

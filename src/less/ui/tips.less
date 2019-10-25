@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+@import '../variable.less';
+
+/**
+ *
+ * @tips.css
+ * @author wenjielei
+ * @create 19-10-25
+ *
+**/
+
+.coo-tips[data-title] {
+  text-indent: 0;
+	position: relative;
+	overflow: visible;
+}
+
+.coo-tips[data-title]::before,
+.coo-tips[data-title]::after {
+  position: absolute;
+  left: 50%;
+  -ms-pointer-events: none;
+  pointer-events: none;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+.coo-tips[data-title]::before {
+  content: attr(data-title);
+  top: -42px;
+  max-width: 250px;
+  padding: 6px 10px;
+  line-height: 18px;
+  border-radius: @borderRadius - 1px;
+  background-color: @backgroundDark;
+  text-align: left;
+  color: @white;
+  font-size: 12px;
+  font-style: normal;
+  white-space: nowrap;
+}
+.coo-tips[data-title]::after {
+  content: '';
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: 6px solid transparent;
+  border-top-color: @backgroundDark;
+  top: -12px;
+}
+.coo-tips[data-title]:hover::before,
+.coo-tips[data-title]:hover::after,
+.coo-tips[data-title]:focus::before,
+.coo-tips[data-title]:focus::after {
+  -webkit-transition: visibility .1s .1s;
+  transition: visibility .1s .1s;
+  visibility: visible;
+}
+.coo-tips[data-title]:hover {
+  outline: none;
+}
+
+
+/* 朝下的情况 */
+.reverse.coo-tips[data-title]::before {
+  top: auto;
+  bottom: -42px;
+}
+.reverse.coo-tips[data-title]::after {
+  border-color: transparent transparent @backgroundDark;
+  top: auto;
+  bottom: -12px;
+}
+
+/* 下面是 IE7 IE8 玩耍的代码 */
+.coo-tips .coo-tips-before,
+.coo-tips .coo-tips-after {
+  display: none;
+  position: absolute;
+  left: 50%;
+  white-space: nowrap;
+}
+.coo-tips-before {
+  top: -42px;
+  max-width: 250px;
+  padding: 6px 10px;
+  line-height: 18px;
+  border-radius: @borderRadius - 1px;
+  background-color: @backgroundDark;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  text-align: left;
+}
+.coo-tips-after {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: 6px solid transparent;
+  border-top-color: @backgroundDark;
+  top: -12px;
+}
+.coo-tips:hover .coo-tips-before,
+.coo-tips:hover .coo-tips-after,
+.coo-tips:focus .coo-tips-before,
+.coo-tips:focus .coo-tips-after {
+  display: block;
+}
+
+/* 下面是JS创建的tips效果 */
+.coo-tips-x {
+	text-align: center;
+	position: absolute;
+	z-index: 99;
+}
+.coo-tips-x .coo-tips-before {
+	display: block;
+}
+.coo-tips-x .coo-tips-after {
+	display: block;
+	*display: inline-block;
+	margin: auto;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+/* 右侧展示的tips效果 */
+.coo-tips-rotate {
+  margin-left: 10px;
+}
+.coo-tips-rotate .coo-tips-before {
+  max-width: 600px;
+}
+.coo-tips-rotate .coo-tips-after {
+  border-color: transparent @backgroundDark transparent transparent;
+  position: absolute;
+  left: -12px; top: 50%;
+  margin-top: -6px;
+}
+
+/* 朝下展示的tips效果 */
+.coo-tips-reverse {
+  margin-top: 10px;
+}
+.coo-tips-reverse .coo-tips-after {
+  position: absolute;
+  border-color: transparent transparent @backgroundDark;
+  top: -12px; left: 50%;
+  margin-left: -6px;
+}
+
+/* 错误提示的tips效果 */
+.coo-tips-error:not(.none) {
+  -webkit-animation: fadeIn .2s, falldown .2s;
+  animation: fadeIn .2s, falldown .2s;
+}
+.coo-tips-error .coo-tips-before {
+  background-color: @red;
+}
+.coo-tips-error .coo-tips-after {
+  border-top-color: @red;
+}
+

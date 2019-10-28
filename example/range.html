@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>range</title>
+    <link rel="stylesheet" type="text/css" href="../src/css/ui/tips.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/ui/range.css">
+</head>
+
+<body>
+    <input type="range" id="opacityRange" class="coo-range-input" value="50" min="0" max="100" step="10">
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/follow.js"></script>
+    <script src="../src/modules/tips.js"></script>
+    <!-- <script src="../src/modules/tips.js"></script> -->
+    <script src="../src/modules/range.js"></script>
+    <script>
+        $("#opacityRange").change(function () {
+            $(this).siblings('span').css('opacity', this.value / 100);
+        }).range({
+            reverse: true,
+            tips: function (value) {
+                return value + '%';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

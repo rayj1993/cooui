@@ -10,14 +10,19 @@
 </head>
 
 <body>
+    <p><input required="" class="valided"></p>
     <p><button title="提示文字">hover我</button></p>
     <script src="../src/plugins/jquery-1.11.3.min.js"></script>
     <script src="../src/modules/follow.js"></script>
-    <script src="../src/modules/tips.js"></script>
+    <!-- <script src="../src/modules/tips.js"></script> -->
+    <script src="../src/modules/errorTip.js"></script>
     <script>
-        $('button').tips({
-            align: 'reverse'
-        })
+        $('button').on('click', function () {
+            $('input').errorTip('尚未输入内容');
+        });
+        // $('button').errorTip({
+        //     align: 'reverse'
+        // })
         // new Tips($('button'), {
         // });
     </script>

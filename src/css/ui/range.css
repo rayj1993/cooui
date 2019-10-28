@@ -1,0 +1,54 @@
+@charset "utf-8";
+/**
+ *
+ * @range.css
+ * @create 19-10-28
+**/
+input[type=range] {
+  visibility: hidden;
+}
+.coo-range-input {
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  vertical-align: middle;
+}
+div.coo-range-input > input {
+  width: 100%;
+}
+.coo-range {
+  display: inline;
+  /*  重要，不会换行  */
+  position: absolute;
+  visibility: visible;
+}
+.coo-range-track {
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background-color: #a2a9b6;
+  border-left: 0 solid #2486ff;
+  text-align: left;
+}
+.coo-range-thumb {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: -7px 0 0 -9px;
+  border-radius: 20px;
+  border: 1px solid #d0d0d5;
+  background-color: #fff;
+  border: 0 rgba(1, 1, 1, 0);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+  -webkit-transition: border-color 0.15s, background-color 0.15s;
+  transition: border-color 0.15s, background-color 0.15s;
+  cursor: pointer;
+}
+.coo-range-thumb:hover {
+  border-color: #ababaf;
+}
+.coo-range-thumb.active {
+  background-color: #f7f9fa;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>colorpicker</title>
+    <link rel="stylesheet" href="../src/css/ui/colorpicker.css">
+</head>
+
+<body>
+    <p><span id="CC" class="vm">颜色为：</span><input type="color" id="colorpicker" class="ui-color-input"></p>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/follow.js"></script>
+    <script src="../src/modules/drop.js"></script>
+    <script src="../src/modules/colorpicker.js"></script>
+    <script>
+        $("#colorpicker").colorpicker().change(function () {
+            $('#CC').css('color', this.value);
+        })
+    </script>
+</body>
+
+</html>

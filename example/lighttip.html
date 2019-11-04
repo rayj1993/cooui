@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lighttip</title>
+    <link rel="stylesheet" href="../src/css/ui/lighttip.css">
+</head>
+
+<body>
+    <p><button id="succ">成功提示</button> <button id="error">出错提示</button></p>
+    <script src="../src/plugins/jquery-1.11.3.min.js"></script>
+    <script src="../src/modules/enhance.js"></script>
+    <script src="../src/modules/lighttip.js"></script>
+    <script>
+        $('#succ').on('click', function () {
+            $.lightTip.success('操作成功');
+        });
+        $('#error').on('click', function () {
+            $.lightTip.error('操作失败');
+        });
+    </script>
+</body>
+
+</html>
